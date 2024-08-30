@@ -1,9 +1,18 @@
+// index.js
 import express from 'express'
+import cors from 'cors'
 import { config } from './config.js'
 import { UserRepository } from './user-repository.js' // Importa UserRepository para manejar usuarios
 
 const app = express()
 const port = config.port
+
+// Configurar CORS para permitir solicitudes desde tu dominio de Webflow
+app.use(cors({
+  origin: 'https://socketidea.webflow.io', // Reemplaza con el dominio de tu sitio de Webflow
+  methods: ['GET', 'POST'], // Métodos HTTP permitidos
+  allowedHeaders: ['Content-Type'] // Headers permitidos
+}))
 
 // Middleware para parsear cuerpos de solicitudes JSON
 app.use(express.json()) // Permite que el servidor maneje datos JSON en el cuerpo de las solicitudes
