@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protected</title>
+</head>
+<body>
+    <h1>Protected Page</h1>
+    <% if (user) { %>
+        <p>Hola, <%= user.username %>! Bienvenido a la página protegida.</p>
+    <% } else { %>
+        <p>Acceso denegado.</p>
+    <% } %>
+</body>
+</html>
